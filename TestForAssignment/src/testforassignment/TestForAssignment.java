@@ -14,6 +14,8 @@ public class TestForAssignment {
         for (int i = 0; i < 2; i++) {
             System.out.println(a.get(i));
         }
+        
+        System.out.println("Helo!");
     }
     
 }
