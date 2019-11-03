@@ -6,6 +6,7 @@
 package testforassignment;
 
 import java.util.Iterator;
+import java.util.Arrays;
 
 /**
  *
@@ -15,13 +16,22 @@ public class MyArrayList<E> implements MyList<E>{
     private Object[] data;
     private int count = 0;
     private final int FIXED_SIZE = 10;
-
+    
+    // this is initialize custom size arrayList
+    public MyArrayList(int size) {
+        this.data = new Object[size];
+    }
+    
+    // this is initialize arrayList default size of 10.
     public MyArrayList() {
         this.data = new Object[FIXED_SIZE];
     }
 
     @Override
     public void add(Object obj) {
+        if (count >= data.length) {
+            this.resizeArray();
+        }
        this.data[count++] = obj;
     }
 
@@ -44,5 +54,12 @@ public class MyArrayList<E> implements MyList<E>{
     public String toString() {
         return String.valueOf(this.data);
     }
+    
+    
+    // will return a new array with bigger size
+    private void resizeArray() {
+        this.data = Arrays.copyOf(data, count + 10);
+    }
+    
 
 }
