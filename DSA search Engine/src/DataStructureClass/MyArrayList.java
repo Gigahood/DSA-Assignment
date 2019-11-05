@@ -1,4 +1,4 @@
-package testforassignment;
+package DataStructureClass;
 
 import java.util.Iterator;
 import java.util.Arrays;
