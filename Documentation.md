@@ -1,3 +1,5 @@
+[SampleERD](https://www.lucidchart.com/invitations/accept/8d98fe70-70aa-4df2-a45a-925e2675d413)
+
 ## List
 
 - void add(Object obj)
