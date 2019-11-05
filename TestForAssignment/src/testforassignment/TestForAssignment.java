@@ -9,12 +9,10 @@ public class TestForAssignment {
         MyList<Integer> a = new MyArrayList<Integer>();
         List<Integer> b  =  new ArrayList<Integer>(10);
         
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             a.add(i);
-        }
-        a.add("t");
-        
-        System.out.println(a.contains("t"));
+        }  
+       System.out.println(a.indexOf(1));
     }
     
 }

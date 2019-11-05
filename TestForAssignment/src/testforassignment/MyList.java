@@ -11,7 +11,7 @@ package testforassignment;
  */
 public interface MyList<E> {
     void add(Object obj);
-    void add(Object o, int index);
+    //void add(int index, Object o);
     int size();
     Object get(int obj);
     void removeAll();
@@ -20,5 +20,5 @@ public interface MyList<E> {
     boolean contains(Object o);
     boolean isEmpty();
     int indexOf(Object o);
-    int lastIndexOf(Object o);
+    //int lastIndexOf(Object o);
 }

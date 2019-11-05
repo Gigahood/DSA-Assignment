@@ -26,41 +26,14 @@ public class MyArrayList<E> implements MyList<E> {
        this.data[count++] = obj;
     }
     
-    @Override
-    public void add(Object o, int index) {
-       
-    }
-
-    @Override
-    public Object get(int obj) {
-        if (obj < count) {
-            return this.data[obj];
-        } else {
-          throw new ArrayIndexOutOfBoundsException();
-        }
-    }
-
-    @Override
-    public void removeAll() {
-       data = null;  
-       count = 0;
-    }
-
-    @Override
-    public void remove(int index) {
-        if (index < count) {
-           data[index] = null;
-           moveForward(data,index);
-           count -= 1;
-        } else {
-           throw new ArrayIndexOutOfBoundsException();
-        }
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(this.data);
-    }
+//    @Override
+//    public void add(int index, Object o) {
+//       checkArraySize(index);
+//       
+//       moveBackward((count - 1), index, data);
+//       data[index] = o;
+//       count++;
+//    }
     
     @Override
     public boolean contains(Object o) {
@@ -77,32 +50,71 @@ public class MyArrayList<E> implements MyList<E> {
         return result;
     }
     
-     
-
     @Override
-    public int size() {
-       
+    public Object get(int obj) {
+        checkArraySize(obj);
+        return this.data[obj];
     }
-
-    @Override
-    public void remove(Object o) {
-       
-    }
-
+    
     @Override
     public boolean isEmpty() {
-       
+       return count == 0;
+    }
+    
+    @Override
+    public void removeAll() {
+       data = null;  
+       count = 0;
     }
 
+    @Override
+    public void remove(int index) {
+        if (index < count) {
+           data[index] = null;
+           moveForward(data,index);
+           count -= 1;
+        } else {
+           throw new ArrayIndexOutOfBoundsException();
+        }
+    }
+ 
+    @Override
+    public int size() {
+       return this.count;
+    }
+//
+    
+    // require search for the object, currently just a simple compare
+    // improvement can use, apply index on the array to fasten the search process
+    @Override
+    public void remove(Object o) {
+       for (int i = 0; i < data.length; i++) {
+           if (data[i].equals(o)) {
+               moveForward(data, i);
+               break;
+           }
+       }
+    }
+
+
+//
     @Override
     public int indexOf(Object o) {
+      int i = 0;
       
+      for (i = 0; i < data.length; i++) {
+          if (data[i].equals(o)) {
+               break;
+           }
+      }
+      
+      return i;
     }
-
-    @Override
-    public int lastIndexOf(Object o) {
-       
-    }
+//
+//    @Override
+//    public int lastIndexOf(Object o) {
+//       
+//    }
     
     
     // will return a new array with bigger size
@@ -117,6 +129,22 @@ public class MyArrayList<E> implements MyList<E> {
             data[i] = data[i+=1];
             data[i] = null;
         }
+    }
+    
+//    private void moveBackward(int count, int index, Object data[]) {   
+//        int next;
+//        int previous;
+//        
+//        for (int i = count; i >= index; i--) {
+//            next = ++i;
+//            previous = i--;
+//            
+//            System.out.println(count + ""+next + " " + previous);
+//        }
+//    }
+    
+    private void checkArraySize(int size) {
+        if (size >= count) throw new ArrayIndexOutOfBoundsException();
     }
 
    
