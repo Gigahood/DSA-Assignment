@@ -26,15 +26,6 @@ public class MyArrayList<E> implements MyList<E> {
        this.data[count++] = obj;
     }
     
-//    @Override
-//    public void add(int index, Object o) {
-//       checkArraySize(index);
-//       
-//       moveBackward((count - 1), index, data);
-//       data[index] = o;
-//       count++;
-//    }
-    
     @Override
     public boolean contains(Object o) {
         int length = data.length;
@@ -96,8 +87,6 @@ public class MyArrayList<E> implements MyList<E> {
        }
     }
 
-
-//
     @Override
     public int indexOf(Object o) {
       int i = 0;
@@ -119,7 +108,7 @@ public class MyArrayList<E> implements MyList<E> {
     
     // will return a new array with bigger size
     private void resizeArray() {
-        this.data = Arrays.copyOf(data, count + 10);
+        this.data = Arrays.copyOf(data, count * count);
     }
     
     private void moveForward(Object data[],int index) {
@@ -130,6 +119,15 @@ public class MyArrayList<E> implements MyList<E> {
             data[i] = null;
         }
     }
+    
+    //    @Override
+//    public void add(int index, Object o) {
+//       checkArraySize(index);
+//       
+//       moveBackward((count - 1), index, data);
+//       data[index] = o;
+//       count++;
+//    }
     
 //    private void moveBackward(int count, int index, Object data[]) {   
 //        int next;
