@@ -9,16 +9,16 @@ package DataStructureClass;
  *
  * @author User
  */
-public interface MyList<E> {
-    void add(Object obj);
+public interface MyList<T> {
+    void add(T obj);
     //void add(int index, Object o);
     int size();
     Object get(int obj);
     void removeAll();
     void remove(int index);
-    void remove(Object o);
-    boolean contains(Object o);
+    void remove(T o);
+    boolean contains(T o);
     boolean isEmpty();
-    int indexOf(Object o);
+    int indexOf(T o);
     //int lastIndexOf(Object o);
 }
