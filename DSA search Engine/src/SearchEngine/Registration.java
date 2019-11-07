@@ -7,6 +7,10 @@ import java.util.Scanner;
 
 public class Registration {
     Scanner scan = new Scanner(System.in);
+
+    public Registration() {
+        System.out.println("This is Registration.");
+    }
     
     public static void start() {
         
