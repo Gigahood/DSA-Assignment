@@ -42,9 +42,9 @@ public class MyArrayList<T> implements MyList<T> {
     }
     
     @Override
-    public T get(int obj) {
-        checkArraySize(obj);
-        return this.data[obj];
+    public T get(int entry) {
+        checkArraySize(entry);
+        return this.data[entry];
     }
     
     @Override
@@ -120,14 +120,13 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
     
-    //    @Override
-//    public void add(int index, T o) {
+    @Override
+    public void add(int index, T o) {
 //       checkArraySize(index);
-//       
 //       moveBackward((count - 1), index, data);
 //       data[index] = o;
 //       count++;
-//    }
+    }
     
 //    private void moveBackward(int count, int index, T data[]) {   
 //        int next;
@@ -142,7 +141,17 @@ public class MyArrayList<T> implements MyList<T> {
 //    }
     
     private void checkArraySize(int size) {
-        if (size >= count) throw new ArrayIndexOutOfBoundsException();
+        if (size > count) throw new ArrayIndexOutOfBoundsException();
+    }
+
+    @Override
+    public boolean isFull() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean replace(Integer givenPosition, T newEntry) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
