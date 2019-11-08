@@ -8,18 +8,24 @@ public class Database {
     
     public MyList<StudentRegistration> registerList = new MyArrayList<>();
     public MyList<Student> studentList = new MyArrayList<>();
+    public MyList<Admin> adminList = new MyArrayList<>();
     
     public Database() {
-        addData();
+        addStudentData();
+        addAdminData();
     }
     
-    private void addData() {
+    private void addStudentData() {
         Student s1 = new Student("Kuek", "Yong Boon", "940526105481", "Foundation");
-        s1.setStudentID();
         StudentRegistration r1 = new StudentRegistration(new Date(), "Pending", s1);
         registerList.add(r1);
         studentList.add(s1);
         //System.out.println(s1);
+    }
+    
+    private void addAdminData() {
+        Admin a1 = new Admin("admin", "admin");
+        adminList.add(a1);
     }
     
 }

@@ -2,23 +2,22 @@ package SearchEngine;
 
 import DataClass.*;
 import DataStructureClass.*;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static Scanner scan = new Scanner(System.in);
+    public static Database db = new Database();
     
     public static void main(String[] args) {
-        Database db = new Database();
-        
-        mainMenu();
+        //mainMenu();
         
         //test();
         
-        //Registration.start();
+        //Registration r = new Registration();
+        
+        Login l = new Login();
     }
     
     public static void mainMenu() {
@@ -79,25 +78,25 @@ public class Main {
         }
     }
     
-    public static void MenuOption() {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Main Menu");
-        System.out.println("01. Student Detail");
-        System.out.println("Please Enter Menu Code");
-
-        String input = scan.nextLine();
-        
-        switch (input) {
-            case "01":
-                StudentDetail studentDetail = new StudentDetail();
-                studentDetail.Show();
-                break;
-            default:
-                MenuOption();
-                break;
-        }
-    }
+//    public static void MenuOption() {
+//        Scanner scan = new Scanner(System.in);
+//
+//        System.out.println("Main Menu");
+//        System.out.println("01. Student Detail");
+//        System.out.println("Please Enter Menu Code");
+//
+//        String input = scan.nextLine();
+//        
+//        switch (input) {
+//            case "01":
+//                StudentDetail studentDetail = new StudentDetail();
+//                studentDetail.Show();
+//                break;
+//            default:
+//                MenuOption();
+//                break;
+//        }
+//    }
 
     public static void banner() {
         System.out.println("-----------------------");

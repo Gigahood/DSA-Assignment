@@ -70,7 +70,11 @@ public class StudentRegistration {
 /*************************** Override**********************************************/
     @Override
     public String toString() {
-        return "Student Registration"; 
+        return "Student Registration ID : " + this.registrationID
+                + "\nRegister Date : " + this.registrationDate
+                + "\nRegister Status : " + this.registrationStatus
+                + "\nPassword : " + this.password
+                + this.student; 
     }
 
 /******************************************************************************/
