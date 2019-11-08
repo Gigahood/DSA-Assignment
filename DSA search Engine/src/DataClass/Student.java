@@ -127,7 +127,8 @@ public class Student {
 /*************************** Override**********************************************/
     @Override
     public String toString() {
-        return "Password" + this.password; 
+        return "Password" + this.password
+                + "\nID : " + this.studentID; 
     }
     
 /******************************************************************************/
@@ -140,8 +141,4 @@ public class Student {
         this.studentID = formatedID;
     }
 
-    
-    
-    
- 
 }
