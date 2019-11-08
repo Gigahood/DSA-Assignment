@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package SearchEngine;
+
+import static SearchEngine.Main.scan;
 
 /**
  *
@@ -12,11 +9,78 @@ package SearchEngine;
 public class Login {
 
     public Login() {
-        loginUI();
+        String input;
+        Main.clearScreen();
+        
+        System.out.println(Main.db.studentList.get(0).getStudentID());
+        System.out.println(Main.db.studentList.get(0).getPassword());
+        
+        while (true) {
+            while (true) {
+                loginUI();
+                input = Main.scan.nextLine();
+
+                if (Main.checkInputMenu(3, input)) {
+                    break;
+                }
+            }// menu selection end
+            
+            if (input.equals("3")) {
+                break;
+            }
+            
+            switch (input) {
+                case "1" :
+                    studentLogin();
+                    break;
+                case "2" :
+                    adminLogin();
+                    break;
+            }
+        }
+
     }
     
     private void loginUI() {
+        System.out.println("Please select your role : ");
+        System.out.println("1. Student");
+        System.out.println("2. Admin");
+        System.out.println("3. Return");
         
+        System.out.print("Your Selection ---> ");
+    }
+    
+    private void studentLogin() {
+        while (true) {
+            System.out.print("Username : ");
+            String username = Main.scan.nextLine();
+            System.out.print("Password : ");
+            String password = Main.scan.nextLine();
+            
+            if (validateLogin(username, password, "student")) {
+                break;
+            };
+        }  
+        
+        StudentModule sm = new StudentModule();
+    }
+    
+    private void adminLogin() {
+        
+    }
+    
+    private boolean validateLogin(String username, String password, String role) {
+        boolean valid = false;
+        
+        if (role.equals("student")) {
+            for (int i = 0; i < Main.db.studentList.size(); i++) {
+                if (Main.db.studentList.get(i).getStudentID().equals(username)) {
+                    valid = Main.db.studentList.get(i).getPassword().equals(password);
+                }
+            }// end loop
+        } // end if
+        
+        return valid;
     }
     
 }

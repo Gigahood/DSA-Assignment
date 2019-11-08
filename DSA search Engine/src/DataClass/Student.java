@@ -31,18 +31,18 @@ public class Student {
         setStudentID();
     }
 
-    //<editor-fold desc="extra constructor tbc">
-    public Student(String firstName, String lastName, long ic, String eduBackground, Date dateOfBirth, String contactNumber, String homeAddress, String emailAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ic = ic;
-        this.eduBackground = eduBackground;
-        this.dateOfBirth = dateOfBirth;
-        this.contactNumber = contactNumber;
-        this.homeAddress = homeAddress;
-        this.emailAddress = emailAddress;
-    }
-    //</editor-fold>
+//    //<editor-fold desc="extra constructor tbc">
+//    public Student(String firstName, String lastName, long ic, String eduBackground, Date dateOfBirth, String contactNumber, String homeAddress, String emailAddress) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.ic = ic;
+//        this.eduBackground = eduBackground;
+//        this.dateOfBirth = dateOfBirth;
+//        this.contactNumber = contactNumber;
+//        this.homeAddress = homeAddress;
+//        this.emailAddress = emailAddress;
+//    }
+//    //</editor-fold>
 
     public String getFirstName() {
         return firstName;
