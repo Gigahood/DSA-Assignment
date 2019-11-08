@@ -12,7 +12,11 @@ package SearchEngine;
 public class Login {
 
     public Login() {
-        System.out.println("This is login");
+        loginUI();
+    }
+    
+    private void loginUI() {
+        
     }
     
 }

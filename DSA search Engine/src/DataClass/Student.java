@@ -113,11 +113,11 @@ public class Student {
 /*************************** Override**********************************************/
     @Override
     public String toString() {
-        return "Student"; 
+        return "Password" + this.password; 
     }
     
 /******************************************************************************/
-    private void setStudentID() {
+    public void setStudentID() {
         count++;
         int year = Calendar.getInstance().get(Calendar.YEAR);
         String last2Digit = (Integer.toString(year)).substring(2);
