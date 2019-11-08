@@ -1,13 +1,12 @@
 package SearchEngine;
 
+import DataClass.Student;
 import static SearchEngine.Main.scan;
 
-/**
- *
- * @author User
- */
 public class Login {
-
+    Student student;
+    int index;
+    
     public Login() {
         String input;
         Main.clearScreen();
@@ -51,18 +50,26 @@ public class Login {
     }
     
     private void studentLogin() {
-        while (true) {
-            System.out.print("Username : ");
-            String username = Main.scan.nextLine();
-            System.out.print("Password : ");
-            String password = Main.scan.nextLine();
+
+        System.out.print("Username : ");
+        String username = Main.scan.nextLine();
+        System.out.print("Password : ");
+        String password = Main.scan.nextLine();
+
+        if (validateLogin(username, password, "student")) {
             
-            if (validateLogin(username, password, "student")) {
-                break;
-            };
-        }  
-        
-        StudentModule sm = new StudentModule();
+            // successful login will go into studentModule
+            StudentModule sm = new StudentModule(student, index);
+
+        } else {
+            
+            // fail login will go back to loginMain
+            System.out.println("Wrong username or password!");
+            System.out.println("Press Enter To Continue!");
+            Main.scan.nextLine();
+            Main.clearScreen();
+        }
+
     }
     
     private void adminLogin() {
@@ -76,6 +83,9 @@ public class Login {
             for (int i = 0; i < Main.db.studentList.size(); i++) {
                 if (Main.db.studentList.get(i).getStudentID().equals(username)) {
                     valid = Main.db.studentList.get(i).getPassword().equals(password);
+                    index = i;
+                    student = Main.db.studentList.get(i);
+                    break;
                 }
             }// end loop
         } // end if

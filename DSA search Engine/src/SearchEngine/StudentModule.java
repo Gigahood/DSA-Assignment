@@ -5,14 +5,23 @@
  */
 package SearchEngine;
 
+import DataClass.Student;
+
 /**
  *
  * @author User
  */
 public class StudentModule {
-
-    public StudentModule() {
-        System.out.println("Sucess!");
+    private Student student;
+    private int index;
+    
+    
+    public StudentModule(Student student, int index) {
+        this.student = student;
+        this.index = index;
+        
+        
+        System.out.println(student);
     }
     
 }

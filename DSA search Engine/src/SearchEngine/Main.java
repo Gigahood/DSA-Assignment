@@ -11,13 +11,13 @@ public class Main {
     public static Database db = new Database();
     
     public static void main(String[] args) {
-        //mainMenu();
+        mainMenu();
         
         //test();
         
         //Registration r = new Registration();
         
-        Login l = new Login();
+        //Login l = new Login();
     }
     
     public static void mainMenu() {
