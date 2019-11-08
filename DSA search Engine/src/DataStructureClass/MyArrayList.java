@@ -3,40 +3,31 @@ package DataStructureClass;
 import java.util.Iterator;
 import java.util.Arrays;
 
-public class MyArrayList<E> implements MyList<E> {
-    private Object[] data;
+public class MyArrayList<T> implements MyList<T> {
+    private T[] data;
     private int count = 0;
     private final int FIXED_SIZE = 10;
     
     // this is initialize custom size arrayList
     public MyArrayList(int size) {
-        this.data = new Object[size];
+        this.data = (T[]) new Object[size];
     }
     
     // this is initialize arrayList default size of 10.
     public MyArrayList() {
-        this.data = new Object[FIXED_SIZE];
+        this.data = (T[]) new Object[FIXED_SIZE];
     }
 
     @Override
-    public void add(Object obj) {
+    public void add(T obj) {
         if (count >= data.length) {
             this.resizeArray();
         }
        this.data[count++] = obj;
     }
     
-//    @Override
-//    public void add(int index, Object o) {
-//       checkArraySize(index);
-//       
-//       moveBackward((count - 1), index, data);
-//       data[index] = o;
-//       count++;
-//    }
-    
     @Override
-    public boolean contains(Object o) {
+    public boolean contains(T o) {
         int length = data.length;
         boolean result = false;
         
@@ -51,9 +42,9 @@ public class MyArrayList<E> implements MyList<E> {
     }
     
     @Override
-    public Object get(int obj) {
-        checkArraySize(obj);
-        return this.data[obj];
+    public T get(int entry) {
+        checkArraySize(entry);
+        return this.data[entry];
     }
     
     @Override
@@ -87,7 +78,7 @@ public class MyArrayList<E> implements MyList<E> {
     // require search for the object, currently just a simple compare
     // improvement can use, apply index on the array to fasten the search process
     @Override
-    public void remove(Object o) {
+    public void remove(T o) {
        for (int i = 0; i < data.length; i++) {
            if (data[i].equals(o)) {
                moveForward(data, i);
@@ -96,10 +87,8 @@ public class MyArrayList<E> implements MyList<E> {
        }
     }
 
-
-//
     @Override
-    public int indexOf(Object o) {
+    public int indexOf(T o) {
       int i = 0;
       
       for (i = 0; i < data.length; i++) {
@@ -112,17 +101,17 @@ public class MyArrayList<E> implements MyList<E> {
     }
 //
 //    @Override
-//    public int lastIndexOf(Object o) {
+//    public int lastIndexOf(T o) {
 //       
 //    }
     
     
     // will return a new array with bigger size
     private void resizeArray() {
-        this.data = Arrays.copyOf(data, count + 10);
+        this.data = Arrays.copyOf(data, count * count);
     }
     
-    private void moveForward(Object data[],int index) {
+    private void moveForward(T data[],int index) {
         int count = data.length - index - 1;
         
         for (int i = index; i < count; i++) {
@@ -131,7 +120,15 @@ public class MyArrayList<E> implements MyList<E> {
         }
     }
     
-//    private void moveBackward(int count, int index, Object data[]) {   
+    @Override
+    public void add(int index, T o) {
+//       checkArraySize(index);
+//       moveBackward((count - 1), index, data);
+//       data[index] = o;
+//       count++;
+    }
+    
+//    private void moveBackward(int count, int index, T data[]) {   
 //        int next;
 //        int previous;
 //        
@@ -144,7 +141,17 @@ public class MyArrayList<E> implements MyList<E> {
 //    }
     
     private void checkArraySize(int size) {
-        if (size >= count) throw new ArrayIndexOutOfBoundsException();
+        if (size > count) throw new ArrayIndexOutOfBoundsException();
+    }
+
+    @Override
+    public boolean isFull() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean replace(Integer givenPosition, T newEntry) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

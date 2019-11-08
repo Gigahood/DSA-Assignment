@@ -4,29 +4,26 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class StudentRegistration {
-    private static int count = 0;
+    // count is for the total number of student registered 
+    private static long count = 0;
     private String registrationID;
     private Date registrationDate;
-    private String courseCode;
-    private String status;
-    private Double cgpa;
+    private String registrationStatus;
     private Student student;
     private String password;
 
     public StudentRegistration() {
     }
 
-    public StudentRegistration(Date registrationDate, String courseCode, String status, Double cgpa, Student student) {
+    public StudentRegistration(Date registrationDate, String registrationStatus, Student student) {
         this.registrationDate = registrationDate;
-        this.courseCode = courseCode;
-        this.status = status;
-        this.cgpa = cgpa;
         this.student = student;
-        this.password = Long.toString(this.student.getIc());
+        this.registrationStatus = registrationStatus;
+        this.password = this.student.getIc();
         setRegistrationID();
     }
 
-    public static int getCount() {
+    public static long getCount() {
         return count;
     }
 
@@ -46,28 +43,12 @@ public class StudentRegistration {
         this.registrationDate = registrationDate;
     }
 
-    public String getCourseCode() {
-        return courseCode;
-    }
-
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
-    }
-
     public String getStatus() {
-        return status;
+        return registrationStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Double getCgpa() {
-        return cgpa;
-    }
-
-    public void setCgpa(Double cgpa) {
-        this.cgpa = cgpa;
+    public void setStatus(String registrationStatus) {
+        this.registrationStatus = registrationStatus;
     }
 
     public Student getStudent() {
@@ -86,6 +67,12 @@ public class StudentRegistration {
         this.password = password;
     }
     
+/*************************** Override**********************************************/
+    @Override
+    public String toString() {
+        return "Student Registration"; 
+    }
+
 /******************************************************************************/
     private void setRegistrationID() {
         count++;

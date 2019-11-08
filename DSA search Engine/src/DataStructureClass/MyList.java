@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+    Description   : 
+    Precondition  : 
+    Postcondition : 
+    Return        :
  */
 package DataStructureClass;
 
@@ -9,16 +10,115 @@ package DataStructureClass;
  *
  * @author User
  */
-public interface MyList<E> {
-    void add(Object obj);
-    //void add(int index, Object o);
+public interface MyList<T> {
+    
+/*
+    Description   : 1. add a new object at the end of the list
+    Precondition  : 1. check if the list if full, add only if it is not full
+    Postcondition : 1. size of the list is increased
+                    2. an item being added to the list
+    Return        :    void
+ */
+    void add(T obj);
+    
+    //add a new Object to the list at the given position, if fail return
+    // false, if true return true
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    void add(int index, T o);
+    
+    // return the current amount of elements inside the list
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
     int size();
-    Object get(int obj);
+    
+    // replace the current element at the given position
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    boolean replace(Integer givenPosition, T newEntry);
+    
+    // this will to get the item from the list
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    T get(int entry);
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
     void removeAll();
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
     void remove(int index);
-    void remove(Object o);
-    boolean contains(Object o);
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    void remove(T o);
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    boolean contains(T o);
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
     boolean isEmpty();
-    int indexOf(Object o);
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    boolean isFull();
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
+    int indexOf(T o);
+    
+    /*
+        Description   : 
+        Precondition  : 
+        Postcondition : 
+        Return        :
+    */
     //int lastIndexOf(Object o);
 }

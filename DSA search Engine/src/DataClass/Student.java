@@ -1,29 +1,34 @@
 package DataClass;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Student {
-
+    // count represent total number of student in current semester
+    private static int count = 0;
+    private String studentID;
     private String firstName;
     private String lastName;
-    private long ic;
+    private String ic;
     private String eduBackground;
-    //<editor-fold desc="extra entities tbc">
-    private Date dateOfBirth;
-    private String contactNumber;
-    private String homeAddress;
-    private String emailAddress;
-    //</editor-fold>
+    private String password;
+    private String studyStatus;
+    private Double cgpa;
+    //private StudentRegistration registration;
 
     public Student() {
 
     }
-
-    public Student(String firstName, String lastName, long ic, String eduBackground) {
+    
+    public Student(String firstName, String lastName, String ic ,
+            String eduBackground) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ic = ic;
+        this.password = ic;
         this.eduBackground = eduBackground;
+        this.cgpa = 0.00;
+       // this.registration = registration;
+        setStudentID();
     }
 
     //<editor-fold desc="extra constructor tbc">
@@ -55,11 +60,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public long getIc() {
+    public String getIc() {
         return ic;
     }
 
-    public void setIc(long ic) {
+    public void setIc(String ic) {
         this.ic = ic;
     }
 
@@ -71,37 +76,72 @@ public class Student {
         this.eduBackground = eduBackground;
     }
 
-    //<editor-fold desc="extra get set method tbc">
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public static int getCount() {
+        return count;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public static void setCount(int count) {
+        Student.count = count;
     }
 
-    public String getContactNumber() {
-        return contactNumber;
+    public String getStudentID() {
+        return studentID;
     }
 
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
-    public String getHomeAddress() {
-        return homeAddress;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHomeAddress(String homeAddress) {
-        this.homeAddress = homeAddress;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getStudyStatus() {
+        return studyStatus;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setStudyStatus(String studyStatus) {
+        this.studyStatus = studyStatus;
     }
-    //</editor-fold>
+
+    public Double getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(Double cgpa) {
+        this.cgpa = cgpa;
+    }
+
+//    public StudentRegistration getRegistration() {
+//        return registration;
+//    }
+//
+//    public void setRegistration(StudentRegistration registration) {
+//        this.registration = registration;
+//    }
+    
+/*************************** Override**********************************************/
+    @Override
+    public String toString() {
+        return "Password" + this.password; 
+    }
+    
+/******************************************************************************/
+    public void setStudentID() {
+        count++;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        String last2Digit = (Integer.toString(year)).substring(2);
+        String formatedID = last2Digit + String.format("%05d",count);
+
+        this.studentID = formatedID;
+    }
+
+    
+    
+    
+ 
 }
