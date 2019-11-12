@@ -24,8 +24,10 @@ public class Database {
     }
     
     private void addAdminData() {
-        Admin a1 = new Admin("admin", "admin");
+        Admin a1 = new Admin("Ms","LIM YI EN","admin", "admin");
+        Admin a2 = new Admin("Mr","SEE E JET","admin01", "admin01");
         adminList.add(a1);
+        adminList.add(a2);
     }
     
 }

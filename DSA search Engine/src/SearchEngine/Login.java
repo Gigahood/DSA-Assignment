@@ -1,9 +1,11 @@
 package SearchEngine;
 
+import DataClass.Admin;
 import DataClass.Student;
 import static SearchEngine.Main.scan;
 
 public class Login {
+    Admin admin;
     Student student;
     int index;
     
@@ -73,7 +75,24 @@ public class Login {
     }
     
     private void adminLogin() {
-        
+        System.out.print("Username : ");
+        String username = Main.scan.nextLine();
+        System.out.print("Password : ");
+        String password = Main.scan.nextLine();
+
+        if (validateLogin(username, password, "admin")) {
+            
+            // successful login will go into studentModule
+            AdminModule am = new AdminModule(admin, index);
+
+        } else {
+            
+            // fail login will go back to loginMain
+            System.out.println("Wrong username or password!");
+            System.out.println("Press Enter To Continue!");
+            Main.scan.nextLine();
+            Main.clearScreen();
+        }
     }
     
     private boolean validateLogin(String username, String password, String role) {
@@ -89,7 +108,16 @@ public class Login {
                 }
             }// end loop
         } // end if
-        
+        else if (role.equals("admin")) {
+            for (int i = 0; i < Main.db.adminList.size(); i++) {
+                if (Main.db.adminList.get(i).getUsername().equals(username)) {
+                    valid = Main.db.adminList.get(i).getPassword().equals(password);
+                    index = i;
+                    admin = Main.db.adminList.get(i);
+                    break;
+                }
+            }// end loop
+        }
         return valid;
     }
     
