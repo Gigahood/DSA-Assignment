@@ -35,6 +35,8 @@ public class Login {
                 case "2" :
                     adminLogin();
                     break;
+                    
+                    123
             }
         }
 
