@@ -3,7 +3,7 @@ package SearchEngine;
 import DataClass.Admin;
 import DataClass.Student;
 import static SearchEngine.Main.scan;
-123
+
 public class Login {
     Admin admin;
     Student student;
