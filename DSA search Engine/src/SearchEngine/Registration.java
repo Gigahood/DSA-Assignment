@@ -16,6 +16,8 @@ public class Registration {
     }
     
     public void registration() {
+        Main.clearScreen();
+        Main.banner();
         System.out.print("Please enter first name : ");
         String firstName = scan.nextLine();
         System.out.print("Please enter last name : ");
@@ -29,7 +31,17 @@ public class Registration {
         StudentRegistration newRegister = new StudentRegistration(new Date(), "pending", newStudent);
         Main.db.registerList.add(newRegister);
         
-        System.out.println(Main.db.registerList.size());
-        System.out.println(Main.db.registerList.get(1));
+//        System.out.println(Main.db.registerList.size());
+//        System.out.println(Main.db.registerList.get(1));
+        System.out.println("");
+        System.out.println("This is your registration ID : " + newRegister.getRegistrationID());
+        System.out.println("Your password is : " + newRegister.getPassword());
+        System.out.println("");
+        System.out.println("Please go to View Registration to check the current status of you registration.");        
+        System.out.println("Press Enter to continue...");
+        scan.nextLine();
+        Main.clearScreen();
+       
+                
     }
 }
