@@ -15,6 +15,7 @@ public interface MyList<T> {
 /*
     Description   : 1. add a new object at the end of the list
     Precondition  : 1. check if the list if full, add only if it is not full
+                    2. Item is not null
     Postcondition : 1. size of the list is increased
                     2. an item being added to the list
     Return        :    void
@@ -86,7 +87,8 @@ public interface MyList<T> {
         Description   : 
         Precondition  : 
         Postcondition : 
-        Return        :
+        Return        : return true if contain the item
+                        return false if it does not contain the item
     */
     boolean contains(T o);
     
