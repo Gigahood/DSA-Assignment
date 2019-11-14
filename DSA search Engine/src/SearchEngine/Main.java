@@ -26,7 +26,7 @@ public class Main {
         while (true) {
             // menu selection start
             while (true) {
-                banner();
+                banner();             
                 mainMenuUI();
                 input = scan.nextLine();
 
@@ -49,6 +49,7 @@ public class Main {
                     break;
                 case "3":
                     new Registration();
+                            
                     break;
             }
         }
