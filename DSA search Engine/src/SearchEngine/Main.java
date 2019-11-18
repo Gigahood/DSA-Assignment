@@ -11,13 +11,26 @@ public class Main {
     public static Database db = new Database();
     
     public static void main(String[] args) {
-        mainMenu();
+        //mainMenu();
         
-        //test();
+        test();
         
         //Registration r = new Registration();
         
         //Login l = new Login();
+    }
+    
+    private static void test() {
+        MyList<String> a = new MyArrayList<String>();
+        
+        a.add("1");
+        a.add("2");
+        a.add("3");
+        a.add("4");
+        
+        a.remove("1");
+        
+        System.out.println(a.indexOf(null));
     }
     
     public static void mainMenu() {
