@@ -11,8 +11,8 @@ public class Main {
     public static Database db = new Database();
     
     public static void main(String[] args) {
-        mainMenu();
-        //testingCI
+        //mainMenu();
+        //testingCI2222
         //test();
         
         //Registration r = new Registration();
